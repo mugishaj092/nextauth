@@ -62,6 +62,7 @@ const LoginForm = () => {
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       {...field}
                       placeholder="john.doe@example.com"
                       type="email"
@@ -78,7 +79,12 @@ const LoginForm = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="*****" type="password" />
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="*****"
+                      type="password"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -87,7 +93,7 @@ const LoginForm = () => {
           </div>
           <FormError message={Error} />
           <FormSuccess message={Success} />
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={isPending}>
             Login
           </Button>
         </form>

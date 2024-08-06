@@ -64,6 +64,7 @@ const RegisterForm = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      disabled={isPending}
                       placeholder="John Doe"
                       type="text"
                     />
@@ -80,6 +81,7 @@ const RegisterForm = () => {
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       {...field}
                       placeholder="john.doe@example.com"
                       type="email"
@@ -96,7 +98,12 @@ const RegisterForm = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="*****" type="password" />
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="*****"
+                      type="password"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -105,7 +112,7 @@ const RegisterForm = () => {
           </div>
           <FormError message={Error} />
           <FormSuccess message={Success} />
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={isPending}>
             Create account
           </Button>
         </form>
